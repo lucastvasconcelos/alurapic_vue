@@ -6,6 +6,7 @@
             <li v-for="foto of filtrarPorTitulo" class="lista-fotos-item">
                 <meu-painel :titulo="foto.titulo">
                     <imagem-responsiva :url="foto.url" :alt="foto.titulo"> </imagem-responsiva>
+                    <meu-botao rotulo="REMOVER" tipo="button" @botaoAtivado="remove(foto)"></meu-botao>
                 </meu-painel>
             </li>
         </ul>
@@ -15,11 +16,13 @@
 <script>
     import Painel from '../shared/painel/Painel.vue';
     import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue';
+    import Button from '../shared/button/Button.vue';
     
     export default {
         components: {
             'meu-painel': Painel,
-            'imagem-responsiva': ImagemResponsiva
+            'imagem-responsiva': ImagemResponsiva,
+            'meu-botao': Button,
         },
         name: 'app',
         data() {
@@ -39,7 +42,11 @@
                 }
             }
         },
-        created() {
+        methods: {
+            remove(foto) {
+                 alert("Foto " + foto.titulo + " será removida");            }
+        },
+  e d      created() {
             this.$http.get('http://localhost:3000/v1/fotos')
                 .then(res => res.json())
                 .then(res => this.fotos = res, err => console.log(err));
