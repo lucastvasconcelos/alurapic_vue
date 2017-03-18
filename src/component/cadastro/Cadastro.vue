@@ -3,12 +3,13 @@
         Cadastro de fotos
     </h2>
 </template>
+
 <script>
     
 </script>
 
 <style>
-    .cadastro{
+    .centralizado {
         text-align: center;
     }
 </style>

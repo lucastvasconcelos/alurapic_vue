@@ -1,16 +1,13 @@
 <template>
     <div class="painel">
-        <h2 class="painel-titulo" @dblclick="visible = !visible" >{{titulo}}</h2>
+        <h2 class="painel-titulo" @dblclick="visible = !visible">{{titulo}}</h2>
         <transition name="painel-fade">
-        <div class="painel-corpo" v-show="visible"> 
-            <slot>
-            </slot>
-        </div>
+            <div class="painel-corpo" v-show="visible">
+                <slot>
+                </slot>
+            </div>
         </transition>
     </div>
-
-
-
 </template>
 
 <script>
@@ -18,7 +15,7 @@
         props: ['titulo'],
         data() {
             return {
-                visible : true
+                visible: true
             }
         }
     }
@@ -36,6 +33,7 @@
         vertical-align: top;
         text-align: center;
     }
+    
     .painel .painel-titulo {
         text-align: center;
         border: solid 2px;
@@ -44,17 +42,18 @@
         padding: 10px;
         text-transform: uppercase;
     }
-    *{
+    
+    * {
         box-shadow: 5px 5px 5px black;
     }
-
-    .painel-fade-enter, .painel-fade-leave-active{
+    
+    .painel-fade-enter,
+    .painel-fade-leave-active {
         opacity: 0;
     }
     
-    .painel-fade-enter-active,.painel-fade-leave-active{
-        transition : opacity .4s;
+    .painel-fade-enter-active,
+    .painel-fade-leave-active {
+        transition: opacity .4s;
     }
-
-
 </style>
